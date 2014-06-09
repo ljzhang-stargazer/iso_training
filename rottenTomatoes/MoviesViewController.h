@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoviesViewController : UIViewController<UITableViewDataSource>
+@interface MoviesViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end

@@ -9,13 +9,15 @@
 #import "MoviesViewController.h"
 #import "MovieCell.h"
 #import "AFNetworking.h"
-//#import "UIImageView+AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
+#import "MovieDetailViewController.h"
 
 @interface MoviesViewController()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (nonatomic, strong) NSArray *movies;
+
+//- (IBAction)onTap:(id)sender;
 
 @end
 
@@ -87,16 +89,31 @@
     
     __weak UITableViewCell *weakCell = cell;
     
+    //cell.posterView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.posterView setImageWithURLRequest:request
                           placeholderImage:placeholderImage
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        
                                        weakCell.imageView.image = image;
+                                       //weakCell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                                        [weakCell setNeedsLayout];
                                        
                                    } failure:nil];
-    
-    
     return cell;
 }
+
+//this code is from reference, but i don't know how to link it with the UITableView. It will be good to be able to use this.
+- (IBAction)onTap:(id)sender {
+    NSLog(@"tapped");
+    MovieDetailViewController *vc = [[MovieDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    
+    MovieDetailViewController *vc = [[MovieDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end
