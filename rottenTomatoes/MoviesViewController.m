@@ -9,6 +9,7 @@
 #import "MoviesViewController.h"
 #import "MovieCell.h"
 #import "AFNetworking.h"
+//#import "UIImageView+AFNetworking.h"
 
 @interface MoviesViewController()
 
@@ -69,12 +70,32 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"cell for row at index path: %d", indexPath.row);
     
+    
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     NSDictionary *movie = self.movies[indexPath.row];
+    //NSLog(movie[@"title"]);
+    //NSLog(movie[@"posters"][@"thumbnail"]);
     
     cell.movieTitleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"synopsis"];
+   
+    
+    NSURL *url = [NSURL URLWithString:movie[@"posters"][@"thumbnail"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    __weak UITableViewCell *weakCell = cell;
+    
+    [cell.posterView setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       
+                                       weakCell.imageView.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
+    
     
     return cell;
 }
