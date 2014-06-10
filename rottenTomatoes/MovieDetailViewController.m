@@ -9,12 +9,15 @@
 #import "MovieDetailViewController.h"
 
 @interface MovieDetailViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *moviePicture;
-@property (weak, nonatomic) IBOutlet UILabel *movieDetailDesc;
+@property (weak, nonatomic) IBOutlet UILabel *movieTitle;
+@property (weak, nonatomic) IBOutlet UILabel *movieDetail;
 
 @end
 
 @implementation MovieDetailViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +32,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.movieTitle.text = self.title;
+    self.movieDetail.text = self.detail;
+    self.moviePicture.image = self.picture;
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,4 +43,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+-(void) setTitle:(NSString *)text
+{
+    title = text;
+}
+-(void) setDetail:(NSString *)text
+{
+    detail = text;
+}
+-(void) setPicture:(UIImage *)image
+{
+    picture = image;
+}
+*/
 @end
