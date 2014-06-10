@@ -8,6 +8,7 @@
 
 #import "MoviesViewController.h"
 #import "MovieCell.h"
+#import "ErrorCell.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "MovieDetailViewController.h"
@@ -17,6 +18,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
+
+//flag for network error
+@property BOOL isNetworkError;
 
 //- (IBAction)onTap:(id)sender;
 
@@ -45,17 +49,24 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    NSString *url = @"http://api1.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"%@", object);
+       
 
         //hide loading animation
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     
-        self.movies = object[@"movies"];
+        if (data == nil) {
+            self.isNetworkError = YES;
+           // return;
+        } else {
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            NSLog(@"%@", object);
+            self.movies = object[@"movies"];
+            self.isNetworkError = NO;
+        }
         
         [self.tableView reloadData];
         
@@ -68,8 +79,9 @@
     }];
     
     [self.tableView registerNib: [UINib nibWithNibName:@"MovieCell" bundle:nil] forCellReuseIdentifier:@"MovieCell"];
+    [self.tableView registerNib: [UINib nibWithNibName:@"ErrorCell" bundle:nil] forCellReuseIdentifier:@"ErrorCell"];
     
-    self.tableView.rowHeight = 150;
+    //self.tableView.rowHeight = 150;
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,12 +92,29 @@
 
 #pragma mark - table viwe methods
 - (int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movies.count;
+    if (self.isNetworkError) {
+        return 1;
+    } else {
+        return self.movies.count;
+    }
+}
+
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.isNetworkError) {
+        return 40;
+    } else {
+        return 150;
+    }
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //NSLog(@"cell for row at index path: %d", indexPath.row);
     
+    if (self.isNetworkError) {
+        ErrorCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"ErrorCell"];
+        return cell;
+    }
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
