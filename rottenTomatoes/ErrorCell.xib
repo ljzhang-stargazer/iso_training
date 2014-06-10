@@ -20,9 +20,16 @@
                         <color key="textColor" red="1" green="0.0013426643030843843" blue="0.024601117646950166" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="gG4-8A-Cmg">
+                        <rect key="frame" x="93" y="9" width="24" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="error" width="118" height="118"/>
+    </resources>
 </document>

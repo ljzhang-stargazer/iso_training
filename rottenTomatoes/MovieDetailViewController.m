@@ -44,18 +44,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
--(void) setTitle:(NSString *)text
-{
-    title = text;
-}
--(void) setDetail:(NSString *)text
-{
-    detail = text;
-}
--(void) setPicture:(UIImage *)image
-{
-    picture = image;
-}
-*/
 @end
