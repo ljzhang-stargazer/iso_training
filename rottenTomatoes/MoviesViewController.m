@@ -58,6 +58,13 @@
         self.movies = object[@"movies"];
         
         [self.tableView reloadData];
+        
+        
+        //refresh
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+        [self.tableView addSubview:refreshControl];
+        
     }];
     
     [self.tableView registerNib: [UINib nibWithNibName:@"MovieCell" bundle:nil] forCellReuseIdentifier:@"MovieCell"];
@@ -77,26 +84,24 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cell for row at index path: %d", indexPath.row);
+    //NSLog(@"cell for row at index path: %d", indexPath.row);
     
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     NSDictionary *movie = self.movies[indexPath.row];
-    //NSLog(movie[@"title"]);
-    //NSLog(movie[@"posters"][@"thumbnail"]);
     
     cell.movieTitleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"synopsis"];
    
     
-    NSURL *url = [NSURL URLWithString:movie[@"posters"][@"thumbnail"]];
+    NSURL *url = [NSURL URLWithString:movie[@"posters"][@"original"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     //UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
     
     //__weak UITableViewCell *weakCell = cell;
     
-    //cell.posterView.contentMode = UIViewContentModeScaleAspectFit;
+    cell.posterView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.posterView setImageWithURLRequest:request
                           placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -132,7 +137,7 @@
     [vc setDetail: selectedMovie[@"synopsis"]];
     
     
-    NSURL *url = [NSURL URLWithString:selectedMovie[@"posters"][@"thumbnail"]];
+    NSURL *url = [NSURL URLWithString:selectedMovie[@"posters"][@"original"]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
@@ -159,6 +164,12 @@
      */
     
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+//refresh control
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"refresh");
+    [refreshControl endRefreshing];
 }
 
 @end

@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view from its nib.
     self.movieTitle.text = self.title;
     self.movieDetail.text = self.detail;
+    self.moviePicture.contentMode = UIViewContentModeScaleAspectFit;
     self.moviePicture.image = self.picture;
 }
 
