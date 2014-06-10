@@ -18,7 +18,8 @@ Completed user stories (with check-mark):
  * [ ] Add a search bar. (optional)
 Additional Requirements
  * [x] Must use Cocoapods.
- * [x]Asynchronous image downloading must be implemented using the UIImageView category in the AFNetworking library.
+ * [x] Asynchronous image downloading must be implemented using the UIImageView category in the AFNetworking library.
 
 Walkthrough of all user stories:
+
 please see the recorded gif file in issue submission. (I haven't figured out how to add it here yet.)
