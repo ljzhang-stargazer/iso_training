@@ -38,6 +38,13 @@
     self.movieDetail.text = self.detail;
     self.moviePicture.contentMode = UIViewContentModeScaleAspectFit;
     self.moviePicture.image = self.picture;
+    
+    self.moviePicture.alpha = 0;
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:3.0]; //fade-in duration in second
+    self.moviePicture.alpha = 1.0;
+    [UIView commitAnimations];
+    
 }
 
 - (void)didReceiveMemoryWarning

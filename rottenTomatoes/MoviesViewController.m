@@ -121,13 +121,10 @@
     
     cell.movieTitleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"synopsis"];
-   
     
     NSURL *url = [NSURL URLWithString:movie[@"posters"][@"original"]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    //UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
     
-    //__weak UITableViewCell *weakCell = cell;
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     cell.posterView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.posterView setImageWithURLRequest:request
@@ -135,9 +132,13 @@
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        //hide loading animation
                                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                       //weakCell.imageView.image = image;
-                                       //[weakCell setNeedsLayout];
+                                       
                                        cell.posterView.image = image;
+                                       cell.posterView.alpha = 0;
+                                       [UIView beginAnimations:@"fade in" context:nil];
+                                       [UIView setAnimationDuration:2.0]; //fade-in duration in second
+                                       cell.posterView.alpha = 1.0;
+                                       [UIView commitAnimations];
                                        
                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                        self.title = @"Network Error!";
@@ -174,8 +175,6 @@
                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                         //hide loading animation
                                         [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                        //weakCell.imageView.image = image;
-                                        //[weakCell setNeedsLayout];
                                         [vc setPicture:image];
                                         
                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -191,6 +190,15 @@
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh");
     [refreshControl endRefreshing];
+}
+
+- (void)fadeInImage: (UIImageView *) imageView
+{
+    [UIView beginAnimations:@"fade in" context:nil];
+    [UIView setAnimationDuration:1.0];
+    imageView.alpha = 1.0;
+    [UIView commitAnimations];
+    
 }
 
 @end
