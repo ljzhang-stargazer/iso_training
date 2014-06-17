@@ -13,8 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *moviePicture;
 @property (weak, nonatomic) IBOutlet UILabel *movieTitle;
 @property (weak, nonatomic) IBOutlet UILabel *movieDetail;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -38,29 +36,12 @@
     self.movieDetail.text = self.detail;
     self.moviePicture.contentMode = UIViewContentModeScaleAspectFit;
     self.moviePicture.image = self.picture;
-    
-    [self fadeInImage: self.moviePicture];
-}
-
-- (void) fadeInImage: (UIImageView *) imageView {
-    imageView.alpha = 0;
-    [UIView beginAnimations:@"fade in" context:nil];
-    [UIView setAnimationDuration:2.0]; //fade-in duration in second
-    imageView.alpha = 1.0;
-    [UIView commitAnimations];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    [self.scrollView layoutIfNeeded];
-    
-    
-    self.scrollView.contentSize = self.contentView.bounds.size;
 }
 
 @end

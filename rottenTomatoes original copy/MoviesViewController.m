@@ -121,10 +121,13 @@
     
     cell.movieTitleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"synopsis"];
+   
     
     NSURL *url = [NSURL URLWithString:movie[@"posters"][@"original"]];
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    //UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    //__weak UITableViewCell *weakCell = cell;
     
     cell.posterView.contentMode = UIViewContentModeScaleAspectFit;
     [cell.posterView setImageWithURLRequest:request
@@ -132,8 +135,9 @@
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        //hide loading animation
                                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                
-                                       [self fadeInImage: cell.posterView :image];
+                                       //weakCell.imageView.image = image;
+                                       //[weakCell setNeedsLayout];
+                                       cell.posterView.image = image;
                                        
                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                        self.title = @"Network Error!";
@@ -141,15 +145,6 @@
      
      ];
     return cell;
-}
-
-- (void) fadeInImage: (UIImageView *) imageView :(UIImage *) image {
-    imageView.image = image;
-    imageView.alpha = 0;
-    [UIView beginAnimations:@"fade in" context:nil];
-    [UIView setAnimationDuration:2.0]; //fade-in duration in second
-    imageView.alpha = 1.0;
-    [UIView commitAnimations];
 }
 
 //this code is from reference, but i don't know how to link it with the UITableView. It will be good to be able to use this.
@@ -179,6 +174,8 @@
                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                         //hide loading animation
                                         [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                        //weakCell.imageView.image = image;
+                                        //[weakCell setNeedsLayout];
                                         [vc setPicture:image];
                                         
                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -194,15 +191,6 @@
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh");
     [refreshControl endRefreshing];
-}
-
-- (void)fadeInImage: (UIImageView *) imageView
-{
-    [UIView beginAnimations:@"fade in" context:nil];
-    [UIView setAnimationDuration:1.0];
-    imageView.alpha = 1.0;
-    [UIView commitAnimations];
-    
 }
 
 @end

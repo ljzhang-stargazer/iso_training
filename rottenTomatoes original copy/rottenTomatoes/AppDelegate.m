@@ -22,26 +22,6 @@
     self.window.rootViewController = nvc;
     
     
-    
-    /*
-     TopMoviesViewController *boxOfficeViewController = [[TopMoviesViewController alloc] init];
-     TopDVDTableViewController *dvdViewController = [[TopDVDTableViewController alloc] init];
-     
-     UINavigationController *boxOfficeNavController = [[UINavigationController alloc] initWithRootViewController:boxOfficeViewController];
-     boxOfficeNavController.tabBarItem.image = [UIImage imageNamed:@"ticket.png"];
-     boxOfficeNavController.title = @"Box Office Movies";
-     
-     UINavigationController *dvdNavController = [[UINavigationController alloc] initWithRootViewController:dvdViewController];
-     dvdNavController.tabBarItem.image = [UIImage imageNamed:@"disc.png"];
-     dvdNavController.title = @"Top DVD Rentals";
-     
-     UITabBarController *tbc = [[UITabBarController alloc] init];
-     [tbc setViewControllers:[NSArray arrayWithObjects:boxOfficeNavController, dvdNavController, nil]];
-     [tbc.view setBackgroundColor:[UIColor lightGrayColor]];
-     self.window.rootViewController = tbc;
-
-     */
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
