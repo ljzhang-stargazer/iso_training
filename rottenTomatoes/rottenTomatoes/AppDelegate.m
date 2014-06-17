@@ -11,36 +11,38 @@
 
 @implementation AppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+    /*
     MoviesViewController *vc = [[MoviesViewController alloc] init];
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     
     self.window.rootViewController = nvc;
+    */
     
+    NSString* boxOfficeURL = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
+    NSString* dvdViewOfficeURL = @"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=g9au4hv6khv6wzvzgt55gpqs";
     
-    
-    /*
-     TopMoviesViewController *boxOfficeViewController = [[TopMoviesViewController alloc] init];
-     TopDVDTableViewController *dvdViewController = [[TopDVDTableViewController alloc] init];
+    MoviesViewController *boxOfficeViewController = [[MoviesViewController alloc] initWithURL:boxOfficeURL];
+     MoviesViewController *dvdViewController = [[MoviesViewController alloc] initWithURL:dvdViewOfficeURL];
      
      UINavigationController *boxOfficeNavController = [[UINavigationController alloc] initWithRootViewController:boxOfficeViewController];
-     boxOfficeNavController.tabBarItem.image = [UIImage imageNamed:@"ticket.png"];
-     boxOfficeNavController.title = @"Box Office Movies";
+     //boxOfficeNavController.tabBarItem.image = ;
+    boxOfficeNavController.tabBarItem.title = @"Box Office";
      
      UINavigationController *dvdNavController = [[UINavigationController alloc] initWithRootViewController:dvdViewController];
-     dvdNavController.tabBarItem.image = [UIImage imageNamed:@"disc.png"];
-     dvdNavController.title = @"Top DVD Rentals";
-     
+     //dvdNavController.tabBarItem.image = ;
+     boxOfficeNavController.tabBarItem.title = @"Top DVDs";
+    
      UITabBarController *tbc = [[UITabBarController alloc] init];
      [tbc setViewControllers:[NSArray arrayWithObjects:boxOfficeNavController, dvdNavController, nil]];
      [tbc.view setBackgroundColor:[UIColor lightGrayColor]];
      self.window.rootViewController = tbc;
 
-     */
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

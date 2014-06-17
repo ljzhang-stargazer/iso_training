@@ -10,6 +10,6 @@
 
 @interface MoviesViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-
+-(id)initWithURL:(NSString *) url;
 
 @end

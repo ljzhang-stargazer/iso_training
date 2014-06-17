@@ -59,7 +59,6 @@
     [super viewDidLayoutSubviews];
     [self.scrollView layoutIfNeeded];
     
-    
     self.scrollView.contentSize = self.contentView.bounds.size;
 }
 
