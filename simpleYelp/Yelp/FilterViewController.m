@@ -28,6 +28,8 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
 @property (nonatomic) BOOL isSortedBySectionExpanded;
 @property (strong,nonatomic) NSArray *categoryValues;
 
+@property (nonatomic) BOOL isOfferDeal;
+@property (strong, nonatomic) NSString* sortedBy;
 
 @end
 
@@ -64,6 +66,7 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.filterOption = [[FilterOption alloc] init];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -254,6 +257,15 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
              */
             break;
         case Popular_Section:
+            switch (indexPath.row) {
+                case 0:
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
         case PriceRange_Section:
             break;
     }
@@ -286,6 +298,7 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
 }
 
 - (void)toggleCategorySelectionAtRow:(NSInteger)row {
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:Category_Section];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
@@ -299,6 +312,20 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
     }
 }
 
+- (void)sender:(ToggleViewCell *)sender didChangeValue:(BOOL)value {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSLog(@"%ld, %@", (long)indexPath.row, @(value));
+    if (indexPath.section == 1) {
+        
+        //self.mostPopularSwitchStates[indexPath.row] = @(value);
+    }
+    else if (indexPath.section == 3) {
+        //self.generalFeaturesSwitchStates[indexPath.row] = @(value);
+    }
+    else {
+        //self.categoriesSwitchStates[indexPath.row] = @(value);
+    }
+}
 
 - (void)search {
     FilterOption *filterOption = [[FilterOption alloc] init];

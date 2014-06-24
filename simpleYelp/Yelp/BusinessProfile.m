@@ -26,7 +26,16 @@
         
         NSArray *categoryArray = businessData[@"categories"];
         
-        self.category = [categoryArray componentsJoinedByString:@","];
+        //self.category = [categoryArray componentsJoinedByString:@","];
+        self.category = @"";
+        for (int i = 0; i < categoryArray.count; i++) {
+            if (i == 0) {
+                self.category = categoryArray[i][0];
+            }
+            else {
+                self.category = [self.category stringByAppendingFormat:@", %@", categoryArray[i][0]];
+            }
+        }
     }
     
     return self;

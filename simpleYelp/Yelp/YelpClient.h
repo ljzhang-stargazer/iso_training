@@ -15,4 +15,6 @@
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+- (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term parameters: (NSDictionary *) param success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 @end

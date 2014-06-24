@@ -39,24 +39,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
         // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
         self.client = [[YelpClient alloc] initWithConsumerKey:kYelpConsumerKey consumerSecret:kYelpConsumerSecret accessToken:kYelpToken accessSecret:kYelpTokenSecret];
         
-        [self.client searchWithTerm:@"Thai" success:^(AFHTTPRequestOperation *operation, id response) {
-            //NSLog(@"response: %@", response);
-            
-            self.businessArray = [[NSMutableArray alloc] init];
-            
-            for (NSDictionary *business in response[@"businesses"]) {
-                [self.businessArray addObject:[[RestaurantProfile alloc] initWithRestaurantProfileData:business]];
-                //NSLog(@"business: %@", business);
-            }
-            
-            [self.tableView reloadData];
+        [self searchYelpAPI:@"thai" parameters:nil];
 
-            
-            
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"error: %@", [error description]);
-        }];
     }
     return self;
 }
@@ -122,7 +106,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     cell.review.lineBreakMode = NSLineBreakByWordWrapping;
     cell.address.text = [NSString stringWithFormat:@"%@, %@", restaurant.address, restaurant.city];
     cell.address.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.category.text = @"Thai, thai"; //restaurant.category;
+    cell.category.text = restaurant.category;
     cell.category.lineBreakMode = NSLineBreakByWordWrapping;
 
     __weak IntroViewCell *weakCell = cell;
@@ -159,6 +143,14 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     return cell;
 }
 
+//search button was tapped
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    NSLog(@"searchkeyword: %@", searchBar.text);
+    [self searchYelpAPI:searchBar.text parameters:nil];
+}
+
+
 - (void)filter {
     [self.searchBar resignFirstResponder];
     FilterViewController *filterViewController = [[FilterViewController alloc] initWithNibName:NSStringFromClass([FilterViewController class]) bundle:nil];
@@ -173,6 +165,45 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     NSLog(fiterOption.distance);
     
+    
+}
+
+-(void) searchYelpAPI:(NSString *)searchkeyword parameters:(NSDictionary *)params {
+    
+    if(params){
+        
+        [self.client searchWithTerm:searchkeyword parameters:params success:^(AFHTTPRequestOperation *operation, id response) {
+            //NSLog(@"response: %@", response);
+            
+            self.businessArray = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *business in response[@"businesses"]) {
+                [self.businessArray addObject:[[RestaurantProfile alloc] initWithRestaurantProfileData:business]];
+                //NSLog(@"business: %@", business);
+            }
+            
+            [self.tableView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error: %@", [error description]);
+        }];
+        
+    }else{
+        
+        [self.client searchWithTerm:searchkeyword success:^(AFHTTPRequestOperation *operation, id response) {
+            
+            self.businessArray = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *business in response[@"businesses"]) {
+                [self.businessArray addObject:[[RestaurantProfile alloc] initWithRestaurantProfileData:business]];
+            }
+            
+            [self.tableView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error: %@", [error description]);
+        }];
+    }
     
 }
 
