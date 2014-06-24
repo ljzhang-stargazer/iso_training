@@ -114,7 +114,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     RestaurantProfile *restaurant = [self.businessArray objectAtIndex:indexPath.row];
     
     cell.name.text = [NSString stringWithFormat:@"%d. %@", indexPath.row+1, restaurant.name];
-    NSLog(@"restaurant.review: %@", restaurant.reviewNum);
+    //NSLog(@"restaurant.review: %@", restaurant.reviewNum);
     //NSLog(@"restaurant.isOpen: %@", restaurant.isOpen? @"YES" : @"NO");
     
     cell.name.lineBreakMode = NSLineBreakByWordWrapping;
@@ -165,6 +165,12 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     filterViewController.delegate = self;
     [self presentViewController:filterViewController animated:YES completion:^{}];
     return;
+}
+
+- (void)searchWithFilterOption:(FilterOption *)fiterOption
+{
+    
+    NSLog(fiterOption.distance);
 }
 
 @end

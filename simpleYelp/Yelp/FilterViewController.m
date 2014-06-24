@@ -26,7 +26,7 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
 
 @property (nonatomic) BOOL isDistanceSectionExpanded;
 @property (nonatomic) BOOL isSortedBySectionExpanded;
-//@property (strong, nonatomic) FilterOption *filterOption;
+@property (strong,nonatomic) NSArray *categoryValues;
 
 
 @end
@@ -43,6 +43,18 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
         self.isDistanceSectionExpanded = NO;
         self.isSortedBySectionExpanded = NO;
         
+        self.categoryValues = @[
+                                @{@"name": @"American (Traditional)",
+                                  @"value": @"tradamerican"},
+                                @{@"name": @"Asian Fusion",
+                                  @"value": @"asianfusion"},
+                                @{@"name": @"Breakfast & Brunch",
+                                  @"value": @"breakfast_brunch"},
+                                @{@"name": @"Buffets",
+                                  @"value": @"buffets"},
+                                @{@"name": @"Cafes",
+                                  @"value": @"cafes"}
+                                ];
     }
     return self;
 }
@@ -180,18 +192,17 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
             } else {
                 switch (row) {
                     case 0:
-                        label = @"1";
+                        label = @"Best Match";
                         break;
                     case 1:
-                        label = @"2";
+                        label = @"Distance";
                         break;
                     case 2:
-                        label = @"3";
+                        label = @"Rating";
                         break;
                     case 3:
-                        label = @"4";
+                        label = @"Most Reviewed";
                         break;
-  
                     default:
                         break;
                 }
@@ -204,6 +215,8 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
         case Category_Section:
         {
             UITableViewCell * cell = [self standardCell];
+            cell.textLabel.text = self.categoryValues[indexPath.row][@"name"];
+
             return cell;
         }
     }
@@ -286,25 +299,15 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
     }
 }
 
-#pragma mark - RadiusCellDelegate
 
-- (void)sliderValueChanged:(int)value {
-    //_filterOption.radiusFilter = value;
-}
+- (void)search {
+    FilterOption *filterOption = [[FilterOption alloc] init];
+    filterOption.distance = @"0.1";
 
-#pragma mark - button handlers
-
-- (void)cancelButtonHandler:(id)sender {
-    [[self navigationController] popViewControllerAnimated:YES];
-}
-
-- (void)searchButtonHandler:(id)sender {
-    [self.delegate searchWithFilterOption:_filterOption];
-    [[self navigationController] popViewControllerAnimated:YES];
-}
-
-- (void)dealSwitchValueChanged:(id)sender {
-   // _filterOption.dealsFilter = ((UISwitch *)sender).on;
+    
+    [self.delegate searchWithFilterOption:filterOption];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    return;
 }
 
 @end
