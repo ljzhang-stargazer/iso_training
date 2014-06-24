@@ -11,6 +11,7 @@
 @interface FilterOption : NSObject
 
 @property (strong, nonatomic) NSString *categoryList;
+@property (strong, nonatomic) NSMutableArray *categories;
 @property (strong, nonatomic) NSString *distance;
 @property (strong, nonatomic) NSString *priceRange;
 @property (nonatomic) BOOL isOpenNow;

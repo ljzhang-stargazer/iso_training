@@ -26,10 +26,11 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
 
 @property (nonatomic) BOOL isDistanceSectionExpanded;
 @property (nonatomic) BOOL isSortedBySectionExpanded;
-@property (strong,nonatomic) NSArray *categoryValues;
 
-@property (nonatomic) BOOL isOfferDeal;
-@property (strong, nonatomic) NSString* sortedBy;
+@property (nonatomic) BOOL isDealAvailable;
+@property (strong,nonatomic) NSArray *categoryValues;
+@property (strong,nonatomic) NSArray *sortByItems;
+@property (nonatomic) int sortByItemIndex;
 
 @end
 
@@ -45,6 +46,7 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
         self.isDistanceSectionExpanded = NO;
         self.isSortedBySectionExpanded = NO;
         
+        self.sortByItems = @[@"Best Match", @"Distance", @"Rating", @"Most Reviewed"];
         self.categoryValues = @[
                                 @{@"name": @"American (Traditional)",
                                   @"value": @"tradamerican"},
@@ -61,12 +63,12 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.filterOption = [[FilterOption alloc] init];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -167,13 +169,14 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
         case PriceRange_Section:
         {
             PriceSegmentationViewCell *priceRangeCell = [self.tableView dequeueReusableCellWithIdentifier:@"PriceSegmentationViewCell"];
-            //priceRangeCell = _filterOption.radiusFilter;
+
             return priceRangeCell;
         }
         case Popular_Section:
         {
             
             ToggleViewCell *toggleViewCell = [self.tableView dequeueReusableCellWithIdentifier:@"ToggleViewCell"];
+            toggleViewCell.delegate = self;
             switch (row) {
                 case 0:
                     label  = @"Offering a deal";
@@ -189,7 +192,7 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
         case Sort_Section:
         {
             UITableViewCell * cell = [self standardCell];
-            UIImageView * accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 21, 21)];
+            UIImageView * accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
             if (!self.isSortedBySectionExpanded) {
 
             } else {
@@ -209,6 +212,15 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
                     default:
                         break;
                 }
+                
+                if (indexPath.row == self.sortByItemIndex) {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                else {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                }
+
+                
                 cell.textLabel.text = label;
                 
             }
@@ -238,6 +250,8 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
+    //NSLog(@"section: %d, row: %d", indexPath.section, indexPath.row);
+    
     switch (section) {
         case Sort_Section:
             if (!self.isSortedBySectionExpanded) {
@@ -245,27 +259,13 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
             } else {
                 [self collapseSortBySectionWithRow:row];
             }
+            self.sortByItemIndex = row;
+            //NSLog(@"sortByItemIndex: %d", row);
             break;
         case Category_Section:
-            /*
-            if (!_categoriesExpanded) {
-                _categoriesExpanded = YES;
-                [_tableView reloadSections:[NSIndexSet indexSetWithIndex:Category_Section] withRowAnimation:UITableViewRowAnimationFade];
-            } else {
                 [self toggleCategorySelectionAtRow:row];
-            }
-             */
             break;
         case Popular_Section:
-            switch (indexPath.row) {
-                case 0:
-                    
-                    break;
-                    
-                default:
-                    break;
-            }
-            break;
         case PriceRange_Section:
             break;
     }
@@ -280,11 +280,12 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
 
 - (void)collapseSortBySectionWithRow:(NSInteger)row {
     //int oldSelection = _filterOption.sortFilter;
-    //_filterOption.sortFilter = (sortMode)row;
+    self.filterOption.sortedBy = self.sortByItems[row];
+    NSLog(self.filterOption.sortedBy);
     // change radio button selection
-    NSArray * reloadPaths = @[[NSIndexPath indexPathForRow:row inSection:0]];
+    NSArray * reloadPaths = @[[NSIndexPath indexPathForRow:row inSection:Sort_Section]];
     [_tableView reloadRowsAtIndexPaths:reloadPaths withRowAnimation:UITableViewRowAnimationNone];
-    //reloadPaths = @[[NSIndexPath indexPathForRow:oldSelection inSection:0]];
+    //reloadPaths = @[[NSIndexPath indexPathForRow:oldSelection inSection:Sort_Section]];
     [_tableView reloadRowsAtIndexPaths:reloadPaths withRowAnimation:UITableViewRowAnimationNone];
     
     self.isSortedBySectionExpanded = NO;
@@ -298,43 +299,44 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
 }
 
 - (void)toggleCategorySelectionAtRow:(NSInteger)row {
-    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:Category_Section];
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
-    NSString * category = [NSString stringWithFormat:@"%ld", (long)row];
-    if (YES) {//[_filterOption.categories containsObject:category]) {
-      //  [_filterOption.categories removeObject:category];
-        //cell.accessoryType = UITableViewCellAccessoryNone;
+    NSString * category = self.categoryValues[indexPath.row][@"value"];
+    
+    if ([self.filterOption.categories containsObject:category]) {
+        [self.filterOption.categories removeObject:category];
+        cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
-        //[_filterOption.categories addObject:category];
+        [self.filterOption.categories addObject:category];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
 }
 
-- (void)sender:(ToggleViewCell *)sender didChangeValue:(BOOL)value {
+
+- (void)search {
+    
+    //checking
+    //NSLog(self.filterOption.sortedBy);
+    
+    [self.delegate searchWithFilterOption:self.filterOption];
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    return;
+}
+
+- (void)sender:(ToggleViewCell *)sender didToggle:(BOOL)value {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    NSLog(@"%ld, %@", (long)indexPath.row, @(value));
+    NSLog(@"TEST!!!");
     if (indexPath.section == 1) {
-        
+        NSLog(@"%ld, %@", (long)indexPath.row, @(value));
         //self.mostPopularSwitchStates[indexPath.row] = @(value);
     }
-    else if (indexPath.section == 3) {
+    else if (indexPath.section == 4) {
         //self.generalFeaturesSwitchStates[indexPath.row] = @(value);
     }
     else {
         //self.categoriesSwitchStates[indexPath.row] = @(value);
     }
-}
-
-- (void)search {
-    FilterOption *filterOption = [[FilterOption alloc] init];
-    filterOption.distance = @"0.1";
-
-    
-    [self.delegate searchWithFilterOption:filterOption];
-    [self dismissViewControllerAnimated:YES completion:^{}];
-    return;
 }
 
 @end

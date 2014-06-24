@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ToggleViewCell : UITableViewCell
+@class ToggleViewCell;
+
+@protocol ToggleViewCellDelegate <NSObject>
+
+- (void)sender:(ToggleViewCell *) sender didToggle:(BOOL)value;
 
 @end
+
+@interface ToggleViewCell : UITableViewCell
+
+@property (nonatomic, assign) id<ToggleViewCellDelegate> delegate;
+
+@end
+
+
+
+
+

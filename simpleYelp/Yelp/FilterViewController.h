@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "FilterOption.h"
+#import "ToggleViewCell.h"
 
 @protocol FilterViewControllerDelegate <NSObject>
 - (void)searchWithFilterOption:(FilterOption *)fiterOption;
 @end
 
-@interface FilterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface FilterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ToggleViewCellDelegate>
 
 @property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
 @property (strong, nonatomic) FilterOption * filterOption;

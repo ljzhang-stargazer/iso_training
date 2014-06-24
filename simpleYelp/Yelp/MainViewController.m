@@ -159,13 +159,41 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     return;
 }
 
-- (void)searchWithFilterOption:(FilterOption *)fiterOption
+- (void)searchWithFilterOption:(FilterOption *)filterOption
 {
-    NSLog(@"Called");
     
-    NSLog(fiterOption.distance);
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    //[params setObject:self.filterModel.searchTerm forKey:@"term"];
+    [params setObject:@"San Francisco" forKey:@"location"];
     
     
+    if(filterOption.isDealAvailable == YES){
+        
+        [params setObject:@"true" forKey:@"deals_filter"];
+    }
+    
+    if( filterOption.categories && filterOption.categories.count > 0){
+        
+        filterOption.categoryList = @"";
+        for (int i = 0; i < filterOption.categories.count; i++) {
+            if (i == 0) {
+                filterOption.categoryList = filterOption.categories[i];
+            }
+            else {
+                filterOption.categoryList = [filterOption.categoryList stringByAppendingFormat:@", %@", filterOption.categories[i]];
+            }
+        }
+
+        [params setObject:filterOption.categoryList forKey:@"category_filter"];
+    }
+    
+    [params setObject:filterOption.sortedBy forKey:@"sort"];
+    
+    
+    NSLog(@"calling yelp api with there new params: %@", params);
+    
+    [self searchYelpAPI:@"restaurants" parameters:params];
+
 }
 
 -(void) searchYelpAPI:(NSString *)searchkeyword parameters:(NSDictionary *)params {
