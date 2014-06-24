@@ -169,8 +169,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (void)searchWithFilterOption:(FilterOption *)fiterOption
 {
+    NSLog(@"Called");
     
     NSLog(fiterOption.distance);
+    
+    
 }
 
 @end
