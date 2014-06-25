@@ -14,7 +14,7 @@
 - (void)searchWithFilterOption:(FilterOption *)fiterOption;
 @end
 
-@interface FilterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,ToggleViewCellDelegate>
+@interface FilterViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) id<FilterViewControllerDelegate> delegate;
 @property (strong, nonatomic) FilterOption * filterOption;

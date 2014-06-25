@@ -144,7 +144,7 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
             rowNumber = 1;
             break;
         case Popular_Section:
-            rowNumber =  2;
+            rowNumber = 1;
             break;
         case Sort_Section:
             if (self.isSortedBySectionExpanded)
@@ -159,6 +159,13 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
             break;
     }
     return rowNumber;
+}
+
+- (void) toggleSwitch {
+    //NSLog(@"OK");
+    if (self.isDealAvailable == YES) self.isDealAvailable = NO;
+    else self.isDealAvailable = YES;
+    self.filterOption.isDealAvailable = self.isDealAvailable;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -176,13 +183,11 @@ static NSString * filtersCellIdentifier = @"FiltersCell";
         {
             
             ToggleViewCell *toggleViewCell = [self.tableView dequeueReusableCellWithIdentifier:@"ToggleViewCell"];
-            toggleViewCell.delegate = self;
+            //toggleViewCell.delegate = self;
+            [toggleViewCell.switchVw addTarget:self action:@selector(toggleSwitch) forControlEvents:UIControlEventValueChanged];
             switch (row) {
                 case 0:
                     label  = @"Offering a deal";
-                    break;
-                case 1:
-                    label = @"Hot and New";
                     break;
             }
             toggleViewCell.textLabel.text = label;

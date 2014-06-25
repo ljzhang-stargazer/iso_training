@@ -21,6 +21,9 @@
                     </switch>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="switchVw" destination="4LY-Gm-dSE" id="nMJ-hT-8sF"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

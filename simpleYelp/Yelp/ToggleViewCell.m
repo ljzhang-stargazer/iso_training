@@ -22,10 +22,4 @@
     // Configure the view for the selected state
 }
 
-- (void)didToggle:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(sender:didToggle:)]) {
-        [self.delegate sender:self didToggle:((UISwitch*)self.accessoryView).on];
-    }
-}
-
 @end
