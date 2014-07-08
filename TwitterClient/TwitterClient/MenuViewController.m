@@ -22,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.menuOptions = @[@"Profile", @"Timeline", @"Mentions"];
+        self.menuOptions = @[@"Profile", @"Timeline-1", @"Mentions"];
     }
     return self;
 }

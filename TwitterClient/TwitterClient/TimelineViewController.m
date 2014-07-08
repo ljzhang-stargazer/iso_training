@@ -63,7 +63,7 @@
                                              selector:@selector(reloadFromBeingActive)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
     
-    [self setTitle:@"Timeline"];
+    [self setTitle:@"Home"];
     
     self.feedTable.delegate = self;
     self.feedTable.dataSource = self;
@@ -73,7 +73,7 @@
     [self.feedTable registerNib:nib forCellReuseIdentifier:@"TweetCell"];
     
     // Add navbar buttons
-    UIBarButtonItem *composeButton = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStyleDone target:self action:@selector(didClickCompose)];
+    UIBarButtonItem *composeButton = [[UIBarButtonItem alloc] initWithTitle:@"New" style:UIBarButtonItemStyleDone target:self action:@selector(didClickCompose)];
     [self.navigationItem setRightBarButtonItem:composeButton];
     
     UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(didClickSignOut)];
@@ -138,8 +138,8 @@
                                                   options:NSStringDrawingUsesLineFragmentOrigin
                                                attributes:@{NSFontAttributeName: font} context:nil];
     
-    CGFloat dynamicHeight = rect.size.height + 39;
-    CGFloat minHeight = 64;
+    CGFloat dynamicHeight = rect.size.height + 20;
+    CGFloat minHeight = 60;
     
     return (dynamicHeight > minHeight) ? dynamicHeight : minHeight;
 }

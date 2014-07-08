@@ -43,7 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //[self setTitle:@"Reply"];
+    [self setTitle:@"Tweet"];
     
     UIBarButtonItem *replyButton = [[UIBarButtonItem alloc] initWithTitle:@"Reply" style:UIBarButtonItemStyleDone target:self action:@selector(didClickReply)];
     [self.navigationItem setRightBarButtonItem:replyButton];

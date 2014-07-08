@@ -44,7 +44,7 @@
     
     //Creating some buttons:
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(didClickCancel)];
-    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(didClickTweet)];
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleDone target:self action:@selector(didClickTweet)];
     UIBarButtonItem *countButton = [[UIBarButtonItem alloc] initWithCustomView:self.charsLeft];
                                    
     //Putting the Buttons on the Carrier
