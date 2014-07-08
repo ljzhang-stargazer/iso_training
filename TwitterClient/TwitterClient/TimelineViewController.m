@@ -126,6 +126,18 @@
     cell.twitterHandle.text = [NSMutableString stringWithFormat:@"@%@", tweet.username];
     [cell.avatar setImageWithURL:tweet.profilePicture placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cell.time.text = tweet.datePostedShorthand;
+    
+    //borrow from Guozhang Ge's post
+    cell.avatar.layer.shadowColor = [[UIColor grayColor] CGColor];
+    cell.avatar.layer.shadowRadius = 5.0;
+    cell.avatar.layer.shadowOpacity = 1.0;
+    cell.avatar.layer.shadowOffset = CGSizeMake(0, 0);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:cell.avatar.bounds cornerRadius:5.0];
+    cell.avatar.layer.shadowPath = path.CGPath;
+    cell.avatar.layer.cornerRadius = 5.0;
+    cell.avatar.layer.borderColor = [[UIColor grayColor] CGColor];
+    cell.avatar.layer.borderWidth = 1.0;
+    cell.avatar.layer.masksToBounds = YES;
 
     return cell;
 }

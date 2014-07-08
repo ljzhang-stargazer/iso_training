@@ -55,6 +55,18 @@
     self.tweet.text = self.tweetObject.tweet;
     [self.avatar setImageWithURL:self.tweetObject.profilePicture placeholderImage:[UIImage imageNamed:@"placeholder"]];
     
+    //borrow from Guozhang Ge's post
+    self.avatar.layer.shadowColor = [[UIColor grayColor] CGColor];
+    self.avatar.layer.shadowRadius = 5.0;
+    self.avatar.layer.shadowOpacity = 1.0;
+    self.avatar.layer.shadowOffset = CGSizeMake(0, 0);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.avatar.bounds cornerRadius:5.0];
+    self.avatar.layer.shadowPath = path.CGPath;
+    self.avatar.layer.cornerRadius = 5.0;
+    self.avatar.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.avatar.layer.borderWidth = 1.0;
+    self.avatar.layer.masksToBounds = YES;
+    
     // Retweet Button
     if (self.tweetObject.retweeted) {
         [self.retweetButton setHighlighted:YES];
