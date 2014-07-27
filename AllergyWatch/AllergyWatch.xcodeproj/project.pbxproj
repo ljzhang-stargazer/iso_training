@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		569CA21019847C48000145FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569CA20F19847C48000145FA /* Foundation.framework */; };
+		569CA21219847C48000145FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569CA21119847C48000145FA /* CoreGraphics.framework */; };
+		569CA21419847C48000145FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569CA21319847C48000145FA /* UIKit.framework */; };
+		569CA21A19847C48000145FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 569CA21819847C48000145FA /* InfoPlist.strings */; };
+		569CA21C19847C48000145FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA21B19847C48000145FA /* main.m */; };
+		569CA22019847C48000145FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA21F19847C48000145FA /* AppDelegate.m */; };
+		569CA22219847C48000145FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 569CA22119847C48000145FA /* Images.xcassets */; };
+		569CA22919847C48000145FA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569CA22819847C48000145FA /* XCTest.framework */; };
+		569CA22A19847C48000145FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569CA20F19847C48000145FA /* Foundation.framework */; };
+		569CA22B19847C48000145FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569CA21319847C48000145FA /* UIKit.framework */; };
+		569CA23319847C48000145FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 569CA23119847C48000145FA /* InfoPlist.strings */; };
+		569CA23519847C48000145FA /* AllergyWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA23419847C48000145FA /* AllergyWatchTests.m */; };
+		569CA24319847D10000145FA /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA24119847D10000145FA /* SplashScreenViewController.m */; };
+		569CA24419847D10000145FA /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA24219847D10000145FA /* SplashScreenViewController.xib */; };
+		569CA24819847D5A000145FA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA24619847D5A000145FA /* LoginViewController.m */; };
+		569CA24919847D5A000145FA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA24719847D5A000145FA /* LoginViewController.xib */; };
+		569CA24D19847DCB000145FA /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA24B19847DCB000145FA /* RegistrationViewController.m */; };
+		569CA24E19847DCB000145FA /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA24C19847DCB000145FA /* RegistrationViewController.xib */; };
+		569CA25219847E80000145FA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA25019847E80000145FA /* MainViewController.m */; };
+		569CA25319847E80000145FA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA25119847E80000145FA /* MainViewController.xib */; };
+		569CA25719847EC2000145FA /* ScanHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA25519847EC2000145FA /* ScanHistoryViewController.m */; };
+		569CA25819847EC2000145FA /* ScanHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA25619847EC2000145FA /* ScanHistoryViewController.xib */; };
+		569CA25C19847F10000145FA /* AllergySettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA25A19847F10000145FA /* AllergySettingsViewController.m */; };
+		569CA25D19847F10000145FA /* AllergySettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA25B19847F10000145FA /* AllergySettingsViewController.xib */; };
+		569CA26119847F4E000145FA /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA25F19847F4E000145FA /* ProductDetailViewController.m */; };
+		569CA26219847F4E000145FA /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA26019847F4E000145FA /* ProductDetailViewController.xib */; };
+		569CA26619848120000145FA /* ProductAllergyReviewListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA26419848120000145FA /* ProductAllergyReviewListTableViewController.m */; };
+		569CA26719848120000145FA /* ProductAllergyReviewListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA26519848120000145FA /* ProductAllergyReviewListTableViewController.xib */; };
+		569CA26B1984817F000145FA /* NewProductAllergyReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569CA2691984817F000145FA /* NewProductAllergyReviewViewController.m */; };
+		569CA26C1984817F000145FA /* NewProductAllergyReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569CA26A1984817F000145FA /* NewProductAllergyReviewViewController.xib */; };
+		569CA26F1984880B000145FA /* AllergyWatch in Resources */ = {isa = PBXBuildFile; fileRef = 569CA26E1984880B000145FA /* AllergyWatch */; };
+		569CA27119848845000145FA /* AllergyWatch_mockup.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 569CA27019848845000145FA /* AllergyWatch_mockup.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		569CA22C19847C48000145FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 569CA20419847C48000145FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 569CA20B19847C48000145FA;
+			remoteInfo = AllergyWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		569CA20C19847C48000145FA /* AllergyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllergyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		569CA20F19847C48000145FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		569CA21119847C48000145FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		569CA21319847C48000145FA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		569CA21719847C48000145FA /* AllergyWatch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllergyWatch-Info.plist"; sourceTree = "<group>"; };
+		569CA21919847C48000145FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		569CA21B19847C48000145FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		569CA21D19847C48000145FA /* AllergyWatch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllergyWatch-Prefix.pch"; sourceTree = "<group>"; };
+		569CA21E19847C48000145FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		569CA21F19847C48000145FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		569CA22119847C48000145FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		569CA22719847C48000145FA /* AllergyWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllergyWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		569CA22819847C48000145FA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		569CA23019847C48000145FA /* AllergyWatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllergyWatchTests-Info.plist"; sourceTree = "<group>"; };
+		569CA23219847C48000145FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		569CA23419847C48000145FA /* AllergyWatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllergyWatchTests.m; sourceTree = "<group>"; };
+		569CA24019847D10000145FA /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		569CA24119847D10000145FA /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		569CA24219847D10000145FA /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		569CA24519847D5A000145FA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		569CA24619847D5A000145FA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		569CA24719847D5A000145FA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		569CA24A19847DCB000145FA /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		569CA24B19847DCB000145FA /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		569CA24C19847DCB000145FA /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		569CA24F19847E80000145FA /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		569CA25019847E80000145FA /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		569CA25119847E80000145FA /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		569CA25419847EC2000145FA /* ScanHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanHistoryViewController.h; sourceTree = "<group>"; };
+		569CA25519847EC2000145FA /* ScanHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanHistoryViewController.m; sourceTree = "<group>"; };
+		569CA25619847EC2000145FA /* ScanHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanHistoryViewController.xib; sourceTree = "<group>"; };
+		569CA25919847F10000145FA /* AllergySettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergySettingsViewController.h; sourceTree = "<group>"; };
+		569CA25A19847F10000145FA /* AllergySettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllergySettingsViewController.m; sourceTree = "<group>"; };
+		569CA25B19847F10000145FA /* AllergySettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllergySettingsViewController.xib; sourceTree = "<group>"; };
+		569CA25E19847F4E000145FA /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		569CA25F19847F4E000145FA /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		569CA26019847F4E000145FA /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
+		569CA26319848120000145FA /* ProductAllergyReviewListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAllergyReviewListTableViewController.h; sourceTree = "<group>"; };
+		569CA26419848120000145FA /* ProductAllergyReviewListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAllergyReviewListTableViewController.m; sourceTree = "<group>"; };
+		569CA26519848120000145FA /* ProductAllergyReviewListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAllergyReviewListTableViewController.xib; sourceTree = "<group>"; };
+		569CA2681984817F000145FA /* NewProductAllergyReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProductAllergyReviewViewController.h; sourceTree = "<group>"; };
+		569CA2691984817F000145FA /* NewProductAllergyReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProductAllergyReviewViewController.m; sourceTree = "<group>"; };
+		569CA26A1984817F000145FA /* NewProductAllergyReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProductAllergyReviewViewController.xib; sourceTree = "<group>"; };
+		569CA26E1984880B000145FA /* AllergyWatch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AllergyWatch; sourceTree = "<group>"; };
+		569CA27019848845000145FA /* AllergyWatch_mockup.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AllergyWatch_mockup.pdf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		569CA20919847C48000145FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569CA21219847C48000145FA /* CoreGraphics.framework in Frameworks */,
+				569CA21419847C48000145FA /* UIKit.framework in Frameworks */,
+				569CA21019847C48000145FA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		569CA22419847C48000145FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569CA22919847C48000145FA /* XCTest.framework in Frameworks */,
+				569CA22B19847C48000145FA /* UIKit.framework in Frameworks */,
+				569CA22A19847C48000145FA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		569CA20319847C48000145FA = {
+			isa = PBXGroup;
+			children = (
+				569CA21519847C48000145FA /* AllergyWatch */,
+				569CA22E19847C48000145FA /* AllergyWatchTests */,
+				569CA20E19847C48000145FA /* Frameworks */,
+				569CA20D19847C48000145FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		569CA20D19847C48000145FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				569CA20C19847C48000145FA /* AllergyWatch.app */,
+				569CA22719847C48000145FA /* AllergyWatchTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		569CA20E19847C48000145FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				569CA20F19847C48000145FA /* Foundation.framework */,
+				569CA21119847C48000145FA /* CoreGraphics.framework */,
+				569CA21319847C48000145FA /* UIKit.framework */,
+				569CA22819847C48000145FA /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		569CA21519847C48000145FA /* AllergyWatch */ = {
+			isa = PBXGroup;
+			children = (
+				569CA26D19848190000145FA /* doc */,
+				569CA23F19847C90000145FA /* Models */,
+				569CA23E19847C78000145FA /* Controllers */,
+				569CA21E19847C48000145FA /* AppDelegate.h */,
+				569CA21F19847C48000145FA /* AppDelegate.m */,
+				569CA22119847C48000145FA /* Images.xcassets */,
+				569CA21619847C48000145FA /* Supporting Files */,
+			);
+			path = AllergyWatch;
+			sourceTree = "<group>";
+		};
+		569CA21619847C48000145FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				569CA21719847C48000145FA /* AllergyWatch-Info.plist */,
+				569CA21819847C48000145FA /* InfoPlist.strings */,
+				569CA21B19847C48000145FA /* main.m */,
+				569CA21D19847C48000145FA /* AllergyWatch-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		569CA22E19847C48000145FA /* AllergyWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				569CA23419847C48000145FA /* AllergyWatchTests.m */,
+				569CA22F19847C48000145FA /* Supporting Files */,
+			);
+			path = AllergyWatchTests;
+			sourceTree = "<group>";
+		};
+		569CA22F19847C48000145FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				569CA23019847C48000145FA /* AllergyWatchTests-Info.plist */,
+				569CA23119847C48000145FA /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		569CA23E19847C78000145FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				569CA24019847D10000145FA /* SplashScreenViewController.h */,
+				569CA24119847D10000145FA /* SplashScreenViewController.m */,
+				569CA24219847D10000145FA /* SplashScreenViewController.xib */,
+				569CA24519847D5A000145FA /* LoginViewController.h */,
+				569CA24619847D5A000145FA /* LoginViewController.m */,
+				569CA24719847D5A000145FA /* LoginViewController.xib */,
+				569CA24A19847DCB000145FA /* RegistrationViewController.h */,
+				569CA24B19847DCB000145FA /* RegistrationViewController.m */,
+				569CA24C19847DCB000145FA /* RegistrationViewController.xib */,
+				569CA24F19847E80000145FA /* MainViewController.h */,
+				569CA25019847E80000145FA /* MainViewController.m */,
+				569CA25119847E80000145FA /* MainViewController.xib */,
+				569CA25419847EC2000145FA /* ScanHistoryViewController.h */,
+				569CA25519847EC2000145FA /* ScanHistoryViewController.m */,
+				569CA25619847EC2000145FA /* ScanHistoryViewController.xib */,
+				569CA25919847F10000145FA /* AllergySettingsViewController.h */,
+				569CA25A19847F10000145FA /* AllergySettingsViewController.m */,
+				569CA25B19847F10000145FA /* AllergySettingsViewController.xib */,
+				569CA25E19847F4E000145FA /* ProductDetailViewController.h */,
+				569CA25F19847F4E000145FA /* ProductDetailViewController.m */,
+				569CA26019847F4E000145FA /* ProductDetailViewController.xib */,
+				569CA26319848120000145FA /* ProductAllergyReviewListTableViewController.h */,
+				569CA26419848120000145FA /* ProductAllergyReviewListTableViewController.m */,
+				569CA26519848120000145FA /* ProductAllergyReviewListTableViewController.xib */,
+				569CA2681984817F000145FA /* NewProductAllergyReviewViewController.h */,
+				569CA2691984817F000145FA /* NewProductAllergyReviewViewController.m */,
+				569CA26A1984817F000145FA /* NewProductAllergyReviewViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		569CA23F19847C90000145FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		569CA26D19848190000145FA /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				569CA27019848845000145FA /* AllergyWatch_mockup.pdf */,
+				569CA26E1984880B000145FA /* AllergyWatch */,
+			);
+			name = doc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		569CA20B19847C48000145FA /* AllergyWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 569CA23819847C48000145FA /* Build configuration list for PBXNativeTarget "AllergyWatch" */;
+			buildPhases = (
+				569CA20819847C48000145FA /* Sources */,
+				569CA20919847C48000145FA /* Frameworks */,
+				569CA20A19847C48000145FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AllergyWatch;
+			productName = AllergyWatch;
+			productReference = 569CA20C19847C48000145FA /* AllergyWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		569CA22619847C48000145FA /* AllergyWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 569CA23B19847C48000145FA /* Build configuration list for PBXNativeTarget "AllergyWatchTests" */;
+			buildPhases = (
+				569CA22319847C48000145FA /* Sources */,
+				569CA22419847C48000145FA /* Frameworks */,
+				569CA22519847C48000145FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				569CA22D19847C48000145FA /* PBXTargetDependency */,
+			);
+			name = AllergyWatchTests;
+			productName = AllergyWatchTests;
+			productReference = 569CA22719847C48000145FA /* AllergyWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		569CA20419847C48000145FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Lin Zhang";
+				TargetAttributes = {
+					569CA22619847C48000145FA = {
+						TestTargetID = 569CA20B19847C48000145FA;
+					};
+				};
+			};
+			buildConfigurationList = 569CA20719847C48000145FA /* Build configuration list for PBXProject "AllergyWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 569CA20319847C48000145FA;
+			productRefGroup = 569CA20D19847C48000145FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				569CA20B19847C48000145FA /* AllergyWatch */,
+				569CA22619847C48000145FA /* AllergyWatchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		569CA20A19847C48000145FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569CA24E19847DCB000145FA /* RegistrationViewController.xib in Resources */,
+				569CA25319847E80000145FA /* MainViewController.xib in Resources */,
+				569CA24919847D5A000145FA /* LoginViewController.xib in Resources */,
+				569CA26F1984880B000145FA /* AllergyWatch in Resources */,
+				569CA24419847D10000145FA /* SplashScreenViewController.xib in Resources */,
+				569CA26C1984817F000145FA /* NewProductAllergyReviewViewController.xib in Resources */,
+				569CA26719848120000145FA /* ProductAllergyReviewListTableViewController.xib in Resources */,
+				569CA21A19847C48000145FA /* InfoPlist.strings in Resources */,
+				569CA26219847F4E000145FA /* ProductDetailViewController.xib in Resources */,
+				569CA25819847EC2000145FA /* ScanHistoryViewController.xib in Resources */,
+				569CA25D19847F10000145FA /* AllergySettingsViewController.xib in Resources */,
+				569CA27119848845000145FA /* AllergyWatch_mockup.pdf in Resources */,
+				569CA22219847C48000145FA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		569CA22519847C48000145FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569CA23319847C48000145FA /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		569CA20819847C48000145FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569CA26B1984817F000145FA /* NewProductAllergyReviewViewController.m in Sources */,
+				569CA24819847D5A000145FA /* LoginViewController.m in Sources */,
+				569CA25719847EC2000145FA /* ScanHistoryViewController.m in Sources */,
+				569CA26619848120000145FA /* ProductAllergyReviewListTableViewController.m in Sources */,
+				569CA25C19847F10000145FA /* AllergySettingsViewController.m in Sources */,
+				569CA26119847F4E000145FA /* ProductDetailViewController.m in Sources */,
+				569CA25219847E80000145FA /* MainViewController.m in Sources */,
+				569CA22019847C48000145FA /* AppDelegate.m in Sources */,
+				569CA24D19847DCB000145FA /* RegistrationViewController.m in Sources */,
+				569CA21C19847C48000145FA /* main.m in Sources */,
+				569CA24319847D10000145FA /* SplashScreenViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		569CA22319847C48000145FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				569CA23519847C48000145FA /* AllergyWatchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		569CA22D19847C48000145FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 569CA20B19847C48000145FA /* AllergyWatch */;
+			targetProxy = 569CA22C19847C48000145FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		569CA21819847C48000145FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				569CA21919847C48000145FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		569CA23119847C48000145FA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				569CA23219847C48000145FA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		569CA23619847C48000145FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		569CA23719847C48000145FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		569CA23919847C48000145FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllergyWatch/AllergyWatch-Prefix.pch";
+				INFOPLIST_FILE = "AllergyWatch/AllergyWatch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		569CA23A19847C48000145FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllergyWatch/AllergyWatch-Prefix.pch";
+				INFOPLIST_FILE = "AllergyWatch/AllergyWatch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		569CA23C19847C48000145FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AllergyWatch.app/AllergyWatch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllergyWatch/AllergyWatch-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AllergyWatchTests/AllergyWatchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		569CA23D19847C48000145FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AllergyWatch.app/AllergyWatch";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllergyWatch/AllergyWatch-Prefix.pch";
+				INFOPLIST_FILE = "AllergyWatchTests/AllergyWatchTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		569CA20719847C48000145FA /* Build configuration list for PBXProject "AllergyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				569CA23619847C48000145FA /* Debug */,
+				569CA23719847C48000145FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		569CA23819847C48000145FA /* Build configuration list for PBXNativeTarget "AllergyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				569CA23919847C48000145FA /* Debug */,
+				569CA23A19847C48000145FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		569CA23B19847C48000145FA /* Build configuration list for PBXNativeTarget "AllergyWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				569CA23C19847C48000145FA /* Debug */,
+				569CA23D19847C48000145FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 569CA20419847C48000145FA /* Project object */;
+}
